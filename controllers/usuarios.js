@@ -46,12 +46,22 @@ const usuarioPatch = (req,  res = response) => {
     
 };
 
-const usuarioPut = (req, res = response) => {
+const usuarioPut = async(req, res = response) => {
     
     const { id } = req.params;
+    const { password, google,correo, ...resto } = req.body;
+
+    //TODO: Validar contra base de datod
+    if(password ){
+    const salt = bcrypt.genSaltSync();
+    resto.password = bcrypt.hashSync(password,salt)
+    }
+
+    const usuario = await Usuario.findByIdAndUpdate(id,resto)
+
     res.json({
         msg:'put API- Controlador',
-        id,
+        usuario
     });
 
 };
