@@ -49,7 +49,7 @@ const usuarioPatch = (req,  res = response) => {
 const usuarioPut = async(req, res = response) => {
     
     const { id } = req.params;
-    const { password, google,correo, ...resto } = req.body;
+    const { _id, password, google,correo, ...resto } = req.body;
 
     //TODO: Validar contra base de datod
     if(password ){
