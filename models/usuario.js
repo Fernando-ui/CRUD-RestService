@@ -25,7 +25,7 @@ const UsuarioSchema = Schema ( {
         emun:['ADMIN_ROLE', 'USER_ROLE']
     },
     estado:{
-        type:String,
+        type:Boolean,
         default:true
     },
     google:{
